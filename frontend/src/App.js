@@ -1,11 +1,26 @@
 import './App.css';
+import './styles/global.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Dashboard from './components/Dashboard';
+import TaskForm from './components/TaskForm';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   return (
-      <div>
-          <h1>Welcome to TaskAX - AI-Driven Project Management</h1>
-      </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/task-form" element={<TaskForm />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

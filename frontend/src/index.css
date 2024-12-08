@@ -10,3 +10,14 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
+
+.warning {
+  color: red;
+  font-weight: bold;
+}
+
+.regular {
+  color: black;
+  font-weight: normal;
+}
+

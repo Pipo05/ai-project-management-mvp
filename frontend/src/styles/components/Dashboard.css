@@ -1,0 +1,99 @@
+/* Priority-based styles */
+.high-priority {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .medium-priority {
+    color: orange;
+  }
+  
+  .low-priority {
+    color: green;
+  }
+  
+  /* Recommendation styling */
+  .recommendation-item {
+    background-color: #e8f4fc; /* Light blue background */
+    font-style: italic; /* Italicize text for emphasis */
+    padding: 10px; /* Add space inside the box */
+    margin: 10px 0; /* Space between recommendation items */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth background hover effect */
+  }
+  
+  .recommendation-item:hover {
+    background-color: #d6eaf8; /* Slightly darker blue on hover */
+  }
+  
+  /* General task item styles */
+  .task-item {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .task-item p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Upcoming deadlines styling */
+  .deadlines-section {
+    background-color: #fdf2f2; /* Light red background */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .deadlines-section h2 {
+    color: #721c24;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Recommendations section */
+  .recommendations-section h2 {
+    color: #0056b3; /* Dark blue */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Task list styling */
+  .task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Section titles */
+  .section-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .task-item {
+      padding: 10px;
+    }
+  
+    .recommendation-item {
+      padding: 8px;
+    }
+  
+    .section-title {
+      font-size: 1.2rem;
+    }
+  }
+  

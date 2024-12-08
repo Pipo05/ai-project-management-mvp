@@ -1,0 +1,79 @@
+/* TaskForm.css */
+
+form {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  input {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  input[type='date']::-webkit-inner-spin-button,
+  input[type='date']::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  
+  input[type='number']::-webkit-inner-spin-button {
+    margin-left: 5px;
+  }
+  
+  input::placeholder {
+    font-style: italic;
+    color: #888;
+  }
+  
+  /* Error message styling (optional for validation feedback) */
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    text-align: center;
+  }
+  
