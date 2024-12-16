@@ -14,11 +14,11 @@ app.use(express.json());
 const tasks = [
     { id: 1, title: 'Task 1', priority: 1, deadline: '2024-12-10' },
     { id: 2, title: 'Task 2', priority: 2, deadline: '2024-12-08' },
-    // Remove or fix malformed tasks
 ];
 
-
 const users = []; // Temporary user storage
+const testimonials = [];
+const admins = ["admin@example.com"];
 
 // Default route
 app.get('/', (req, res) => {
@@ -75,7 +75,6 @@ app.get('/api/tasks/recommendations', (req, res) => {
     res.json(recommendations);
 });
 
-
 // Tasks API route (POST)
 app.post('/api/tasks', (req, res) => {
     const { title, priority, deadline } = req.body;
@@ -113,7 +112,6 @@ app.post('/api/tasks', (req, res) => {
     res.status(201).json(newTask); // Respond with the new task
 });
 
-
 // Signup Endpoint
 app.post('/api/signup', async (req, res) => {
   const { username, password } = req.body;
@@ -138,6 +136,43 @@ app.post('/api/login', (req, res) => {
   console.log('User logged in:', { username }); // Debugging: Log successful login
   res.json({ token });
 });
+
+// Testimonial APIs
+// Submit a testimonial
+app.post('/api/testimonials', (req, res) => {
+    const { name, role, message } = req.body;
+    console.log('Testimonial Submission Received:', req.body);
+    if (!name || !message || !role) {
+        return res.status(400).json({ message: 'All fields are required.' });
+    }
+    const newTestimonial = { id: testimonials.length + 1, name, role, message, approved: false };
+    testimonials.push(newTestimonial);
+    console.log('Current Testimonials:', testimonials); // Log after adding
+    res.status(201).json({ message: 'Testimonial submitted for approval.' });
+});
+
+// Admin approval endpoint
+app.patch('/api/testimonials/:id/approve', (req, res) => {
+    const testimonial = testimonials.find(t => t.id === parseInt(req.params.id));
+    if (!testimonial) {
+        return res.status(404).json({ message: 'Testimonial not found.' });
+    }
+    testimonial.approved = true;
+    res.json({ message: 'Testimonial approved.', testimonial });
+});
+
+// Retrieve testimonials
+app.get('/api/testimonials', (req, res) => {
+    const isAdmin = req.query.admin === 'true'; // Check for admin mode
+    if (isAdmin) {
+        res.json(testimonials); // Return all testimonials (pending and approved)
+    } else {
+        const approvedTestimonials = testimonials.filter(t => t.approved);
+        res.json(approvedTestimonials); // Return only approved testimonials
+    }
+});
+
+
 
 // Start the server
 app.listen(PORT, () => {
