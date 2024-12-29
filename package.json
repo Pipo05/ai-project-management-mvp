@@ -6,5 +6,8 @@
     "start:backend": "node backend/server.js",
     "start:frontend": "cd frontend && npm start",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }
